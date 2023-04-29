@@ -7,13 +7,26 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/**/*.js",
     "start": "nodemon src/index.js",
-    "prettier":"prettier --check ./src/**/*.js",
-    "prettier:fix": "prettier --write ./src/**/*.js"
+    "prettier": "prettier --write ./src/**/*.js",
+    "prettier:fix": "prettier --write ./src/**/*.js",
+    "prepare": "husky install"
   },
   "author": "Nithin Sikinam",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "npm run lint",
+      "npm run prettier",
+      "git add ."
+    ]
+  },
+    "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
     "eslint": "^8.2.0",
@@ -32,16 +45,5 @@
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
     "supertest": "^6.3.3"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "npm run lint","npm run prettier", "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo lint-staged"
-    }
   }
-  
 }
