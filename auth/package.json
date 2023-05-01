@@ -8,8 +8,7 @@
     "lint": "eslint src/**/*.js",
     "start": "nodemon src/index.js",
     "prettier": "prettier --write ./src/**/*.js",
-    "prettier:fix": "prettier --write ./src/**/*.js",
-    "prepare": "husky install"
+    "prettier:fix": "prettier --write ./src/**/*.js"
   },
   "author": "Nithin Sikinam",
   "license": "ISC",
@@ -17,10 +16,10 @@
     "express": "^4.18.2"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
+    "src/**/*.js": [
       "npm run lint",
       "npm run prettier",
-      "git add ."
+      "git add "
     ]
   },
   "husky": {
